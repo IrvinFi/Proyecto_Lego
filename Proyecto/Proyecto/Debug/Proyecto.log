@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Camera.cpp
   figuras.cpp
 c:\users\wwero\onedrive\documentos\github\proyecto_lego\proyecto\proyecto\figuras.cpp(20): warning C4838: la conversión de 'double' en 'GLfloat' requiere una conversión de restricción
@@ -20,3 +21,6 @@ CModel.lib(MATRIX4X4.obj) : warning LNK4099: no se encontró PDB 'vc70.pdb' con 
 CModel.lib(VECTOR3D.obj) : warning LNK4099: no se encontró PDB 'vc70.pdb' con 'CModel.lib(VECTOR3D.obj)' o en 'C:\Users\wwero\OneDrive\Documentos\GitHub\Proyecto_Lego\Proyecto\Debug\vc70.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 CModel.lib(VECTOR4D.obj) : warning LNK4099: no se encontró PDB 'vc70.pdb' con 'CModel.lib(VECTOR4D.obj)' o en 'C:\Users\wwero\OneDrive\Documentos\GitHub\Proyecto_Lego\Proyecto\Debug\vc70.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
   Proyecto.vcxproj -> C:\Users\wwero\OneDrive\Documentos\GitHub\Proyecto_Lego\Proyecto\Debug\Proyecto.exe
+=======
+﻿LINK : fatal error LNK1104: no se puede abrir el archivo 'cmodel\CModel.lib'
+>>>>>>> 4f647aafa32193746c6039ddf0f40b181a71100f
