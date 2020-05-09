@@ -5,6 +5,8 @@ const double PI = 3.1415926535897;
 float text_der = 1.0;
 float text_izq = 0.0;
 
+
+
 void CFiguras::skybox(float largo, float altura, float profundidad, GLuint text)  //Funcion creacion cielo
 {
 

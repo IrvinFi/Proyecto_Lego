@@ -45,6 +45,8 @@ WWWWWWWWWW  #####$$$$$$$///ooooooooo///$$    W*/
 #include "linkedlist.h"
 //#include "GFILoader.h"
 class CGFILoader;
+#include <iostream>
+
 
 #define _SHADED 4
 #define _WIRED  2
@@ -70,6 +72,8 @@ public:
     bool GFILoadObject(CObjectField*);  //
     bool GFIEndSession();               //Closes gfi file
     void GFIsave(char*);                //Saves model to a disk with GFI format
+
+	
 
     bool _3dsLoad(char*);               //Load a 3ds file
     
@@ -127,6 +131,8 @@ private:
     char* path;                         //model's path
 	char* filename;	                    //file name	
 };
+
+
 
 //distancia de un punto a un triangulo
 float PointToTriDistance(VECTOR3D&,VECTOR3D&,VECTOR3D&,VECTOR3D&);

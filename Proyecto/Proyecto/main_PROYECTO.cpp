@@ -131,72 +131,25 @@ CTexture text5;	//Pasto
 CTexture text8; //Cielo
 CTexture text9; //Puerta
 CTexture piso; //pavimento
+CTexture banqueta; //vanqueda
+CTexture centro;//color negro centro
 
 
 
 //END NEW//////////////////////////////////////////
 
-CFiguras fig2;
-CFiguras fig3;
+CFiguras fig3;   //Modelo jerarquico 
 CFiguras fig4;	//Pasto01
 CFiguras fig5;	//Casa01
-CFiguras fig6;
-CFiguras fig7;	//Para crear Monito
-CFiguras fig8;//torre roja
-CFiguras fig9;//torre blanca
-CFiguras fig10;//torre azul
-CFiguras fig11;//estrellas
-CFiguras fig12;//cadenas
-CFiguras fig13;//silla amarilla
+CFiguras fig20;  //Pavimento departamentos
 
-CFiguras fig14;
-CFiguras fig15;
-CFiguras fig16;
-CFiguras fig17;//MCDon
-CFiguras fig18;
-CFiguras fig19;
-CFiguras fig20;
-CFiguras fig21;
-CFiguras fig22;
-CFiguras fig23;
-CFiguras fig24;
-CFiguras fig25;
-CFiguras fig26;
-
-CModel sol;
-float movsol = 100.0;
-
-CModel soll;
-float movsoll = 100.0;
-
-CModel solll;
-float movsolll = 100.0;
-
-
-CModel soolll;
-float movsoolll = 100.0;
-
-CModel sooll;
-float movsooll = 100.0;
-
-CModel pue;
-float movpue = 100.0;
-
-CModel ado;
-float movado = 100.0;
-
-CModel ca;
-float movca = 100.0;
-
-CModel cer;
-float movcer = 100.0;
-
-
-CModel me;
-float movme = 100.0;
-
-CModel si;
-float movsi = 100.0;
+CModel tree;
+CModel tree2;
+CModel tree3;
+CModel tree4;
+CModel man;
+CModel estatua;
+CModel poste;
 
 void Audio() {
 	PlaySound(TEXT("Audio/fondo.wav"), NULL, SND_LOOP || SND_ASYNC);
@@ -4341,679 +4294,8 @@ void parque()
 	
 }
 
-/*
-void Alumbrado(void) {
-	glPushMatrix();
-	glTranslatef(-28, 0, -43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
 
-	glPushMatrix();
-	glTranslatef(-19, 0, -43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
 
-	glPushMatrix();
-	glTranslatef(-28, 0, -55);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-19, 0, -55);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-28, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-19, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(-28, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-19, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-28, 0, -90);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-19, 0, -90);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-28, 0, -102);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-19, 0, -102);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-5, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(-5, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(10, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(10, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(25, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(25, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(41, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, -77);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(52, 0, -67);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, -52);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, -52);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, -35);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, -35);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, -20);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, -20);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, -5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, -5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, 10);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, 10);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, 25);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, 25);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(52, 0, 42);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, 42);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(52, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(41, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(25, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(25, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(10, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(10, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(-5, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-5, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-20, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-20, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-35, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-35, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-50, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-50, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-65, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-65, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-88, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-88, 0,43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-	
-	glPushMatrix();
-	glTranslatef(-98, 0, 52.5);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-98, 0, 43);
-	glScalef(.08, .08, .08);
-	glEnable(GL_LIGHTING);
-	solll.GLrender(NULL, _SHADED, 1.0);
-	glDisable(GL_LIGHTING);
-	glPopMatrix();
-}
-
-*/
-
-
-
-/*
-void carpa(void) {
-
-	//Aquí empieza la barda del circo
-	glPushMatrix();
-		glTranslatef(15, 0, 0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4,.5,15,text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(-15, 0, 0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, .5, 15, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(0, 0, 15);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, 15, .5, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(11.25, 0, 11.25);
-		glRotatef(45,0,1,0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, 11, .5, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(-11.25, 0, 11.25);
-		glRotatef(135, 0, 1, 0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, 11, .5, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(11.25, 0, -11.25);
-		glRotatef(135, 0, 1, 0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, 11, .5, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(-11.25, 0, -11.25);
-		glRotatef(45, 0, 1, 0);
-		glDisable(GL_LIGHTING);
-		fig11.prisma(4, 11, .5, text9.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-	
-
-	//Aqui empiezan las gradas
-
-	glPushMatrix();
-		glTranslatef(20, 0,0 );
-		glDisable(GL_LIGHTING);
-		fig26.prisma(4,2,15,text8.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(22, 0, 0);
-		glDisable(GL_LIGHTING);
-		fig26.prisma(8, 2, 15, text8.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(24, 0, 0);
-		glDisable(GL_LIGHTING);
-		fig26.prisma(12, 2, 15, text8.GLindex);
-		glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(-20, 0, 0);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(4, 2, 15, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-22, 0, 0);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(8, 2, 15, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-24, 0, 0);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(12, 2, 15, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-
-	glPushMatrix();
-	glTranslatef(0, 0, 20);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(4, 15, 2, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0, 0, 22);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(8, 15, 2, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(0, 0,24);
-	glDisable(GL_LIGHTING);
-	fig26.prisma(12, 15,2, text8.GLindex);
-	glEnable(GL_LIGHTING);
-	glPopMatrix();
-
-	glPushMatrix();
-		glTranslatef(-30, -1, 30);
-		glRotatef(180, 0, 1, 0);
-		glScalef(.004, .004, .004);
-		glPushMatrix();
-		glColor3f(1,0,0);
-		soll.GLrender(NULL, _SHADED, 1.0);
-		glPopMatrix();
-	glPopMatrix();
-}
-*/
-/*
-void carrusel(void)
-{
-	glTranslatef(0, 0, 23);
-	glPushMatrix();
-		glTranslatef(8, 0.1, 20);
-		
-	
-	
-	glPopMatrix();
-
-	//techo
-	
-	
-	glPushMatrix();
-		glColor3f(0.1, 0.0, 0.0);
-		glTranslatef(10, 6, 22);
-		glRotatef(mundo, 0, 1, 0);
-		fig24.cono(2,7,1000,10);
-	glPopMatrix();
-	//piso
-	glPushMatrix();
-		glTranslatef(10, 0.2, 22);
-		glRotatef(mundo, 0, 1, 0);
-		fig24.cono(0.01, 7, 1000, 10);
-	glPopMatrix();
-
-	//postes 
-	glPushMatrix();
-		glTranslatef(10, 0.1, 22);	
-		glColor3f(1, 0, 0);
-		fig25.cilindro(0.3, 6, 100, 10);
-		glRotatef(mundo, 0, 1, 0);
-		glScalef(0.0285, 0.0285, 0.0285);
-		glTranslatef(230, 80, 50);
-		glRotatef(210, 0, 1, 0);
-		glEnable(GL_LIGHTING);
-		sol.GLrender(NULL, _SHADED, 1.0);
-		fig25.cilindro(3.1, 125, 1000, 2);
-		fig25.cilindro(3.1, -75, 1000, 2);
-	
-	
-		glTranslatef(250, 0, -50);
-		glRotatef(-50, 0, 1, 0);
-		sol.GLrender(NULL, _SHADED, 1.0);
-		fig25.cilindro(3.1, 125, 1000, 2);
-		fig25.cilindro(3.1, -75, 1000, 2);
-
-
-		glTranslatef(250, 0, 0);
-		glRotatef(-75, 0, 1, 0);
-		sol.GLrender(NULL, _SHADED, 1.0);
-		fig25.cilindro(3.1, 125, 1000, 2);
-		fig25.cilindro(3.1, -75, 1000, 2);
-
-
-		glTranslatef(250, 0, -30);
-		glRotatef(-75, 0, 1, 0);
-		sol.GLrender(NULL, _SHADED, 1.0);
-		fig25.cilindro(3.1, 125, 1000, 2);
-		fig25.cilindro(3.1, -75, 1000, 2);
-	
-		glTranslatef(250, 0, -80);
-		glRotatef(-75, 0, 1, 0);
-		sol.GLrender(NULL, _SHADED, 1.0);
-	
-		fig25.cilindro(3.1, 125, 1000, 2);
-		fig25.cilindro(3.1, -75, 1000, 2);
-	
-		glDisable(GL_LIGHTING);
-	
-	glPopMatrix();
-	
-	
-}
-*/
 
 void departamentos() {
 	glPushMatrix();
@@ -5075,7 +4357,7 @@ void departamentos() {
 		fig3.prisma(10, 2, 22, text4.GLindex);
 		glEnable(GL_LIGHTING);
 	glPopMatrix();
-	glPushMatrix();
+	/*glPushMatrix();
 		glTranslatef(-90,0,-90);
 		casa();
 		glTranslatef(15, 0, 0);
@@ -5098,7 +4380,7 @@ void departamentos() {
 		glTranslatef(15, 0, 0);
 		casa();
 	glPopMatrix();
-	
+	*/
 }
 
 void pavimento(){
@@ -5699,6 +4981,978 @@ void pavimento(){
 		glEnable(GL_LIGHTING);
 	glPopMatrix();
 
+	glPushMatrix();
+	glTranslatef(-16.5,.40,-99);//banquedas que rodean departamentos
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0,0,3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 14);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 2.5);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 13);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0, 13);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix(); //banqueta central de circulación
+		glTranslatef(-3.5, .40, -99);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0,3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0.0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(13, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -2.5);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 3);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-3, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 3, 3, banqueta.GLindex);
+		glEnable(GL_LIGHTING);
+		
+	glPopMatrix();
+
+	glPushMatrix(); //pavimento fuera de departamentos 
+		glTranslatef(-10, 0.28, -95);
+		glDisable(GL_LIGHTING);
+		glRotatef(90,0,1,0);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-1, 0, -10);
+		glDisable(GL_LIGHTING);
+		glRotatef(-90, 0, 1, 0);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, 13);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix(); //pavimento fuera de departamentos  2
+		glTranslatef(3, 0.28, -95);
+		glDisable(GL_LIGHTING);
+		glRotatef(90, 0, 1, 0);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, piso.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-10, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(-4, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -5);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(0, 0.0, -10);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(5, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(5, 0.0, 10);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		glTranslatef(5, 0.0, 0);
+		glDisable(GL_LIGHTING);
+		fig20.prisma(.2, 10, 10, centro.GLindex);
+		glEnable(GL_LIGHTING);
+		
+	glPopMatrix();
 	
 }
 
@@ -5718,6 +5972,9 @@ GLuint createDL()
 
 	return(ciudadDL);
 }
+
+
+
 
 void InitGL(GLvoid)     // Inicializamos parametros
 {
@@ -5753,7 +6010,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text3.BuildGLTexture();
 	text3.ReleaseImage();
 
-	text4.LoadTGA("texturas/pared.tga");
+	text4.LoadTGA("texturas/pared.tga"); //Pared
 	text4.BuildGLTexture();
 	text4.ReleaseImage();
 
@@ -5773,14 +6030,35 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	text9.BuildGLTexture();
 	text9.ReleaseImage();
 
-	sol._3dsLoad("Modelos/Caballo.3ds");
-	sol.VertexNormals();
+	banqueta.LoadTGA("texturas/banqueta.tga"); //banquetas
+	banqueta.BuildGLTexture();
+	banqueta.ReleaseImage();
+	
+	centro.LoadTGA("texturas/centro.tga");  //centro
+	centro.BuildGLTexture();
+	centro.ReleaseImage();
 
-	soll._3dsLoad("Modelos/carpa.3ds");
-	soll.VertexNormals();
+	tree._3dsLoad("Modelos/arbol.3ds");  //Árbol pequeño circular
+	tree.VertexNormals();
 
-	solll._3dsLoad("Modelos/lampara.3ds");
-	solll.VertexNormals();
+	tree2._3dsLoad("Modelos/tree2.3ds"); //Tronco cortado
+	tree2.VertexNormals();
+
+	tree3._3dsLoad("Modelos/tree3.3ds"); //Árbol grande circular
+	tree3.VertexNormals();
+
+	tree4._3dsLoad("Modelos/tree4.3ds"); //Pino
+	tree4.VertexNormals();
+
+	man._3dsLoad("Modelos/man.3ds");  //Hombre
+	man.VertexNormals();
+
+	estatua._3dsLoad("Modelos/estatua.3ds");  //Estatua
+	estatua.VertexNormals();
+
+	poste._3dsLoad("Modelos/poste.3ds");  //Poste
+	poste.VertexNormals();
+
 
 	//NEW////////////////////////////////////////////
 	KeyFrame[0].arriba = 0;
@@ -5891,7 +6169,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glEnable(GL_LIGHTING);
 	glEnable(GL_TEXTURE_2D);
 
-	
+
 	glutSwapBuffers();
 
 }
