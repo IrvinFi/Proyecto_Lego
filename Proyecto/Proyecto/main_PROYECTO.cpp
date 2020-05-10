@@ -133,6 +133,8 @@ CTexture text9; //Puerta
 CTexture piso; //pavimento
 CTexture banqueta; //vanqueda
 CTexture centro;//color negro centro
+CTexture cemento; //cemento
+CTexture memoria; //memoria estatua
 
 
 
@@ -8583,6 +8585,66 @@ void pavimento(){
 	
 }
 
+void parque_estatua() {
+	glTranslatef(38, 2.5, -69);
+	glPushMatrix();
+		glScalef(6,5,6);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex,cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.1666,.20,0.1666);
+		glTranslatef(0,2.5,0);
+		glDisable(GL_LIGHTING);
+		fig3.cilindro(2,4,1000,cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glPushMatrix();
+			glTranslatef(0,4,-1);
+			glScalef(.0125, .0125, .0125); //factor estatua
+			glRotatef(-90,0,1,0);
+			glDisable(GL_COLOR_MATERIAL);
+			estatua.GLrender(NULL,_SHADED,1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0,-2.5,3);
+		glScalef(3,2,.2);
+		glRotatef(-90, 0, 0, 1);
+		glDisable(GL_LIGHTING);
+		fig3.prisma3(memoria.GLindex, memoria.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-16,-2.5,-15);
+		glPushMatrix();
+			glScalef(.07, .07, .07);
+			glDisable(GL_COLOR_MATERIAL);
+			tree.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(33,0,0);
+		glPushMatrix();
+			glScalef(.07, .07, .07);
+			glDisable(GL_COLOR_MATERIAL);
+			tree.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 0, 33);
+		glPushMatrix();
+			glScalef(.07, .07, .07);
+			glDisable(GL_COLOR_MATERIAL);
+			tree.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-33, 0, 0);
+		glPushMatrix();
+			glScalef(.07, .07, .07);
+			glDisable(GL_COLOR_MATERIAL);
+			tree.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+}
+
 GLuint createDL()
 {
 	GLuint ciudadDL;
@@ -8595,6 +8657,7 @@ GLuint createDL()
 	parque();
 	pavimento();
 	departamentos();
+	parque_estatua();
 	glEndList();
 
 	return(ciudadDL);
@@ -8664,6 +8727,14 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	centro.LoadTGA("texturas/centro.tga");  //centro
 	centro.BuildGLTexture();
 	centro.ReleaseImage();
+
+	cemento.LoadTGA("texturas/cemento.tga"); //Cemento
+	cemento.BuildGLTexture();
+	cemento.ReleaseImage();
+
+	memoria.LoadTGA("texturas/semestre.tga");
+	memoria.BuildGLTexture();
+	memoria.ReleaseImage();
 
 	tree._3dsLoad("Modelos/arbol.3ds");  //Árbol pequeño circular
 	tree.VertexNormals();
