@@ -135,6 +135,9 @@ CTexture banqueta; //vanqueda
 CTexture centro;//color negro centro
 CTexture cemento; //cemento
 CTexture memoria; //memoria estatua
+CTexture lateral; //arbosto lateral
+CTexture superior; //arbosto superior
+
 
 
 
@@ -4381,8 +4384,7 @@ void departamentos() {
 		casa();
 		glTranslatef(15, 0, 0);
 		casa();
-	glPopMatrix();
-	*/
+	glPopMatrix();*/
 }
 
 void pavimento(){
@@ -8587,6 +8589,396 @@ void pavimento(){
 
 void parque_estatua() {
 	glTranslatef(38, 2.5, -69);
+
+
+	glPushMatrix();
+		glTranslatef(-26,-1,26); //arbustos
+		glScalef(2, 2, 2 );
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex,lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5,.5,.5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 8);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(42, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(8, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, -45);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, -8);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-44, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(2, 0, 0);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(-8, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(.5, .5, .5);
+		glTranslatef(0, 0, 2);
+		glScalef(2, 2, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(superior.GLindex, lateral.GLindex);
+		glEnable(GL_LIGHTING);
+
+
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-5,-1.3,15); //bancas
+		glScalef(1.5,1,.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, 0, 4);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, .5, -2);
+		glScalef(2, .5, 6);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(5, -1.3, 15);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, 0, 4);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, .5, -2);
+		glScalef(2, .5, 6);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-5, -1.3, -20);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, 0, 4);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, .5, -2);
+		glScalef(2, .5, 6);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(5, -1.3, -20);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, 0, 4);
+		glScalef(1.5, 1, .5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(0.6666, 1, 2);
+		glTranslatef(0, .5, -2);
+		glScalef(2, .5, 6);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-15, -1.3, 5);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2,1,0.666);
+		glTranslatef(-4,0,0);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(2, .5, 0);
+		glScalef(6, .5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-15, -1.3, -5);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(-4, 0, 0);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(2, .5, 0);
+		glScalef(6, .5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(20, -1.3, -5);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(-4, 0, 0);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(2, .5, 0);
+		glScalef(6, .5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(20, -1.3, 5);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(-4, 0, 0);
+		glScalef(.5, 1, 1.5);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(cemento.GLindex, cemento.GLindex);
+		glEnable(GL_LIGHTING);
+		glScalef(2, 1, 0.666);
+		glTranslatef(2, .5, 0);
+		glScalef(6, .5, 2);
+		glDisable(GL_LIGHTING);
+		fig3.prisma2(text4.GLindex, text4.GLindex);
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+
+	
 	glPushMatrix();
 		glScalef(6,5,6);
 		glDisable(GL_LIGHTING);
@@ -8653,11 +9045,22 @@ GLuint createDL()
 	ciudadDL = glGenLists(1);
 	// start list
 	glNewList(ciudadDL, GL_COMPILE);
+	glColor3f(1,1,1);
+	glPushMatrix();
+		parque();
+	glPopMatrix();
+	glPushMatrix();
+		pavimento();
+	glPopMatrix();
+	glPushMatrix();
+	glColor3f(1, 1, 1);
+		departamentos();
+	glPopMatrix();
+	glPushMatrix();
+	glColor3f(1, 1, 1);
 
-	parque();
-	pavimento();
-	departamentos();
-	parque_estatua();
+		parque_estatua();
+	glPopMatrix();
 	glEndList();
 
 	return(ciudadDL);
@@ -8732,9 +9135,17 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	cemento.BuildGLTexture();
 	cemento.ReleaseImage();
 
-	memoria.LoadTGA("texturas/semestre.tga");
+	memoria.LoadTGA("texturas/semestre.tga");  //Letrero
 	memoria.BuildGLTexture();
 	memoria.ReleaseImage();
+
+	lateral.LoadTGA("texturas/lateral.tga");  //arbusto lateral
+	lateral.BuildGLTexture();
+	lateral.ReleaseImage();
+
+	superior.LoadTGA("texturas/superior.tga");  //arbusto superior
+	superior.BuildGLTexture();
+	superior.ReleaseImage();
 
 	tree._3dsLoad("Modelos/arbol.3ds");  //Árbol pequeño circular
 	tree.VertexNormals();
@@ -8788,7 +9199,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 
 	//END NEW//////////////////////////////
 
-	objCamera.Position_Camera(0, 2.5f, 3, 0, 2.5f, 0, 0, 1, 0);
+	objCamera.Position_Camera(0, 4.0f, 3, 0, 4.0f, 0, 0, 1, 0);
 
 	//NEW Crear una lista de dibujo
 	ciudad_display_list = createDL();
