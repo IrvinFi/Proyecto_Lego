@@ -1,11 +1,11 @@
+Ôªø//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////																						  ////////////
-////////////////					Universidad Nacional AutÛnoma de MÈxico.	                          ////////////
-////////////////							Facultad de IngenierÌa.										  ////////////
+////////////////					Universidad Nacional Aut√≥noma de M√©xico.	                          ////////////
+////////////////							Facultad de Ingenier√≠a.										  ////////////
 ////////////////																						  ////////////
 ////////////////																						  ////////////
-////////////////					       Materia:ComputaciÛn Gr·fica.									  ////////////
+////////////////					       Materia:Computaci√≥n Gr√°fica.									  ////////////
 ////////////////																						  ////////////
 ////////////////																						  ////////////
 ////////////////					 Profesor: Ing. Arturo Perez de la Cruz.							  ////////////
@@ -18,8 +18,8 @@
 ////////////////																						  ////////////
 ////////////////																						  ////////////
 ////////////////							 Integrantes del equipo.									  ////////////
-////////////////							 - Gonz·lez Rojo Irvin.										  ////////////
-////////////////							 - Gonz·lez Joel.           								  ////////////
+////////////////							 - Gonz√°lez Rojo Irvin.										  ////////////
+////////////////							 - Gonz√°lez Joel.           								  ////////////
 ////////////////																						  ////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -137,7 +137,9 @@ CTexture cemento; //cemento
 CTexture memoria; //memoria estatua
 CTexture lateral; //arbosto lateral
 CTexture superior; //arbosto superior
-
+CTexture techo; //piso techo
+CTexture tubo;//tUBERIA
+CTexture door_school; //puerta escuela
 
 
 
@@ -147,6 +149,7 @@ CFiguras fig3;   //Modelo jerarquico
 CFiguras fig4;	//Pasto01
 CFiguras fig5;	//Casa01
 CFiguras fig20;  //Pavimento departamentos
+CFiguras fig10; //Escuela
 
 CModel tree;
 CModel tree2;
@@ -5561,7 +5564,7 @@ void pavimento(){
 
 	glPopMatrix();
 
-	glPushMatrix(); //banqueta central de circulaciÛn
+	glPushMatrix(); //banqueta central de circulaci√≥n
 		glTranslatef(-3.5, .40, -99);
 		glDisable(GL_LIGHTING);
 		fig20.prisma(.2, 3, 3, banqueta.GLindex);
@@ -9037,6 +9040,624 @@ void parque_estatua() {
 	glPopMatrix();
 }
 
+void decoracion() {
+
+	glPushMatrix();//Alumbrado 
+		glTranslatef(93.4,.5,-88.5);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+			glRotatef(-90,0,1,0);
+			glDisable(GL_COLOR_MATERIAL);
+			poste.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0,0,30);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+			glRotatef(-90, 0, 1, 0);
+			glDisable(GL_COLOR_MATERIAL);
+			poste.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 30);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 30);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 30);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-27.75, 0, 10);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		//poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		//poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-55.4, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		//poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		//poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-27.5, 0,0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		//poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(.5, 0, -27.7);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, -55.4);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-35, 0, 56.5);
+		glScalef(1, 1.5, 1);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-35, 0, 0);
+		glScalef(1, 1.5, 1);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 26.8);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(35, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 55.4);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		//glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(-35, 0,0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		//glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(0, 0, 27.5);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(35, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(33, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(28.8, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glScalef(1, 0.66666, 1);
+		glTranslatef(55.4, 0, 0);
+		glScalef(1, 1.5, 1);
+		glPushMatrix();
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		poste.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix();//Hilera de pinos
+		glTranslatef(97, -2, -95);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25 , 33.333);
+		glTranslatef(0,0,15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glScalef(33.333, 25, 33.333);
+		glTranslatef(0, 0, 15);
+		glScalef(.03, .04, .03);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+}
+
+
+void escuela() {
+	glTranslatef(38,10,15);//parte central
+
+	glPushMatrix();
+		glTranslatef(20,-5,0);
+		glPushMatrix();
+			glScalef(10,10,13);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex); //izquierda
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-40, 0, 0);
+		glPushMatrix();
+			glScalef(10, 10, 13);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex); //derecha
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(20, -4.5, 9.5);
+		glPushMatrix();
+			glScalef(5, 1, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text3.GLindex, centro.GLindex);//escalon 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 1, -1);
+		glPushMatrix();
+			glScalef(5, 1, 2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text3.GLindex, centro.GLindex);//escalon 4
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(4, -.5, 1);
+		glPushMatrix();
+			glScalef(3, 2, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, text4.GLindex);//base 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-8, 0, 0);
+		glPushMatrix();
+			glScalef(3, 2, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, text4.GLindex);//base 4
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(4.5, 5, -17.1);
+		glPushMatrix();
+			glScalef(5.5, 8, .2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, door_school.GLindex);//puerta escuela frontal
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-.5, 0, 15.2);
+		glPushMatrix();
+			glScalef(5.5, 8, .2);
+			glRotatef(90,0,0,1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, door_school.GLindex);//puerta escuela trasera
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix();
+		glPushMatrix();
+			glScalef(30,20,15);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex); //centro
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0,10.25,0);
+		glPushMatrix();
+			glScalef(32, .5, 15);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//techo 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 4.25, -3.5);
+		glPushMatrix();
+			glScalef(8, 8, 8);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//cuarto superior
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, -1, 4.1);
+		glPushMatrix();
+			glScalef(3, 6, .2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text9.GLindex);//puerta
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-10,-2.5,-7.1);
+		glPushMatrix();
+			glScalef(12, 1, 2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//barda 1
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-5, 0, 7.5);
+		glPushMatrix();
+			glScalef(2, 1, 13);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//barda 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(16, 0, 5.5);
+		glPushMatrix();
+			glScalef(30, 1, 2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//barda 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(14, 0, -7.5);
+		glPushMatrix();
+			glScalef(2, 1, 13);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//barda 4
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-6, 0, -5.5);
+		glPushMatrix();
+			glScalef(10, 1, 2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(techo.GLindex, text4.GLindex);//barda 5
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-4.5, -20, -3);
+		glPushMatrix();
+			glScalef(3, 2, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, text4.GLindex);//base 1
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-8, 0, 0);
+		glPushMatrix();
+			glScalef(3, 2, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text4.GLindex, text4.GLindex);//base 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(4, -.5, 0);
+		glPushMatrix();
+			glScalef(5, 1, 4);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text3.GLindex, centro.GLindex);//escalon 1
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 1, 1);
+		glPushMatrix();
+			glScalef(5, 1, 2);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(text3.GLindex, centro.GLindex);//escalon 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(4, 1, .5);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(1, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5,23,1000, tubo.GLindex);//tubo 1
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-1, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 25, 1000, tubo.GLindex);//tubo 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-1, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 27, 1000, tubo.GLindex);//tubo 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-6, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 27, 1000, tubo.GLindex);//tubo 4
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-1, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 25, 1000, tubo.GLindex);//tubo 5
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-1, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 23, 1000, tubo.GLindex);//tubo 6
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(1, 0, 0);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia 2
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 10, 0);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 10, 0);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia 4
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(8, 0, 0);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia 5
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, -10, 0);
+		glPushMatrix();
+			glScalef(3, 1, 1);
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.prisma2(tubo.GLindex, tubo.GLindex);//base tuberia 6
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(11, -12.5, 1);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5,20,1000, tubo.GLindex);//tubo izquierdo frontal
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-31, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 20, 1000, tubo.GLindex);//tubo derecho frontal
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 0, 14);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 20, 1000, tubo.GLindex);//tubo derecho trasero
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(31, 0, 0);
+		glPushMatrix();
+			glDisable(GL_COLOR_MATERIAL);
+			fig10.cilindro(.5, 20, 1000, tubo.GLindex);//tubo izquierdo trasero
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+}
+
 GLuint createDL()
 {
 	GLuint ciudadDL;
@@ -9045,6 +9666,7 @@ GLuint createDL()
 	ciudadDL = glGenLists(1);
 	// start list
 	glNewList(ciudadDL, GL_COMPILE);
+	glDisable(GL_COLOR_MATERIAL);
 	glColor3f(1,1,1);
 	glPushMatrix();
 		parque();
@@ -9058,9 +9680,17 @@ GLuint createDL()
 	glPopMatrix();
 	glPushMatrix();
 	glColor3f(1, 1, 1);
-
 		parque_estatua();
 	glPopMatrix();
+	glPushMatrix();
+		glColor3f(1, 1, 1);
+		decoracion();
+	glPopMatrix();
+	glPushMatrix();
+	glColor3f(1, 1, 1);
+		escuela();
+	glPopMatrix();
+	glEnable(GL_COLOR_MATERIAL);
 	glEndList();
 
 	return(ciudadDL);
@@ -9147,13 +9777,25 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	superior.BuildGLTexture();
 	superior.ReleaseImage();
 
-	tree._3dsLoad("Modelos/arbol.3ds");  //¡rbol pequeÒo circular
+	techo.LoadTGA("texturas/piso_techo.tga");  //techo
+	techo.BuildGLTexture();
+	techo.ReleaseImage();
+
+	tubo.LoadTGA("texturas/tuberia.tga");  //tuberia
+	tubo.BuildGLTexture();
+	tubo.ReleaseImage();
+
+	door_school.LoadTGA("texturas/puerta escuela.tga");//puerta escuela
+	door_school.BuildGLTexture();
+	door_school.ReleaseImage();
+
+	tree._3dsLoad("Modelos/arbol.3ds");  //√Årbol peque√±o circular
 	tree.VertexNormals();
 
 	tree2._3dsLoad("Modelos/tree2.3ds"); //Tronco cortado
 	tree2.VertexNormals();
 
-	tree3._3dsLoad("Modelos/tree3.3ds"); //¡rbol grande circular
+	tree3._3dsLoad("Modelos/tree3.3ds"); //√Årbol grande circular
 	tree3.VertexNormals();
 
 	tree4._3dsLoad("Modelos/tree4.3ds"); //Pino
@@ -9314,7 +9956,7 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		objCamera.Move_Camera(CAMERASPEED + 0.2);
 		break;
 
-	case 's'://Atr·s
+	case 's'://Atr√°s
 	case 'S':
 		objCamera.Move_Camera(-(CAMERASPEED + 0.2));
 		break;
@@ -9388,14 +10030,14 @@ int main(int argc, char** argv)   // Main Function
 	int submenu;
 	glutInit(&argc, argv); // Inicializamos OpenGL
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
-	glutInitWindowSize(500, 500);	// TamaÒo de la Ventana
+	glutInitWindowSize(500, 500);	// Tama√±o de la Ventana
 	glutInitWindowPosition(0,0);	//Posicion de la Ventana
 	glutCreateWindow("Proyecto Final Lego"); // Nombre de la Ventana
 	//glutFullScreen     ( );         // Full Screen
 	InitGL();						// Parametros iniciales de la aplicacion
-	glutDisplayFunc(display);  //Indicamos a Glut funciÛn de dibujo
-	glutReshapeFunc(reshape);	//Indicamos a Glut funciÛn en caso de cambio de tamano
-	glutKeyboardFunc(keyboard);	//Indicamos a Glut funciÛn de manejo de teclado
+	glutDisplayFunc(display);  //Indicamos a Glut funci√≥n de dibujo
+	glutReshapeFunc(reshape);	//Indicamos a Glut funci√≥n en caso de cambio de tamano
+	glutKeyboardFunc(keyboard);	//Indicamos a Glut funci√≥n de manejo de teclado
 	glutSpecialFunc(arrow_keys);	//Otras
 	
 
