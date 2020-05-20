@@ -1,3 +1,3 @@
 ﻿  main_PROYECTO.cpp
-c:\users\hitss\documents\github\proyecto_lego\proyecto\proyecto\main_proyecto.cpp(11202): warning C4101: 'submenu': variable local sin referencia
+c:\users\hitss\documents\github\proyecto_lego\proyecto\proyecto\main_proyecto.cpp(12542): warning C4101: 'submenu': variable local sin referencia
   Proyecto.vcxproj -> C:\Users\Hitss\Documents\GitHub\Proyecto_Lego\Proyecto\Debug\Proyecto.exe
