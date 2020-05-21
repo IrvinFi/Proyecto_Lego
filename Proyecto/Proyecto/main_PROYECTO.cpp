@@ -147,6 +147,9 @@ CTexture azul; //color azul
 CTexture rojo;//color rojo
 CTexture gris;//color gris
 CTexture azul_torre; //azzul de la torre
+CTexture vias_tren; //rieles
+CTexture madera; //durmiente
+
 
 
 
@@ -10219,9 +10222,12 @@ void reja_torre(){
 	glPopMatrix();
 }
 
+
+
 void torre() {
 	glTranslatef(-55, 7.5, 12.5);//parte central baja
-	
+
+		
 	glPushMatrix();
 		glTranslatef(21, -6.5, 5); //arbustos
 		glPushMatrix();
@@ -11610,6 +11616,7 @@ void torre() {
 			fig10.prisma2(azul_torre.GLindex, azul_torre.GLindex); //antena azul
 			glEnable(GL_COLOR_MATERIAL);
 		glPopMatrix();
+
 	glPopMatrix();
 
 
@@ -12132,6 +12139,619 @@ void torre() {
 	glPopMatrix();
 }
 
+void durmiente() {
+	glPushMatrix();
+		glScalef(1.5, .5, 1.5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(madera.GLindex, madera.GLindex); //durmiente
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(0,0,-6);
+	glPushMatrix();
+		glScalef(1.5, .5, 9.5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(madera.GLindex, madera.GLindex); //durmiente
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(0, 0, -6);
+	glPushMatrix();
+		glScalef(1.5, .5, 1.5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(madera.GLindex, madera.GLindex); //durmiente
+		glEnable(GL_LIGHTING);
+	glPopMatrix();
+}
+
+void vias() {
+
+	glPushMatrix();
+		glTranslatef(-90, -2, 97);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(45, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(0, 0, -23);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+			glScalef(.02, .05, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			tree4.GLrender(NULL, _SHADED, 1.0);
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-45, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+		glTranslatef(-15, 0, 0);
+		glPushMatrix();
+		glScalef(.02, .05, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		tree4.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-100, .26, 91);
+		glPushMatrix();
+			durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+			durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(32, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(31, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+		glTranslatef(3.5, 0, 0);
+		glPushMatrix();
+		durmiente();
+		glPopMatrix();
+	glPopMatrix();
+
+
+	glPushMatrix();
+		glTranslatef(-95,.26,90);
+		glPushMatrix();
+			glScalef(10,.5,.5);
+			glDisable(GL_LIGHTING);
+			fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+			glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+			glScalef(10, .5, .5);
+			glDisable(GL_LIGHTING);
+			fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+			glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+		glTranslatef(10, 0, 0);
+		glPushMatrix();
+		glScalef(10, .5, .5);
+		glDisable(GL_LIGHTING);
+		fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
+	glPopMatrix();
+
+	glPushMatrix();
+	glTranslatef(-95, .26, 80);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(10, 0, 0);
+	glPushMatrix();
+	glScalef(10, .5, .5);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glPopMatrix();
+}
+
 GLuint createDL()
 {
 	GLuint ciudadDL;
@@ -12140,7 +12760,6 @@ GLuint createDL()
 	ciudadDL = glGenLists(1);
 	// start list
 	glNewList(ciudadDL, GL_COMPILE);
-	glDisable(GL_COLOR_MATERIAL);
 	glColor3f(1,1,1);
 	glPushMatrix();
 		parque();
@@ -12168,7 +12787,11 @@ GLuint createDL()
 	glColor3f(1, 1, 1);
 		torre();
 	glPopMatrix();
-	glEnable(GL_COLOR_MATERIAL);
+	glPushMatrix();
+		glColor3f(1, 1, 1);
+		vias();
+	glPopMatrix();
+
 	glEndList();
 
 	return(ciudadDL);
@@ -12297,6 +12920,14 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	azul_torre.BuildGLTexture();
 	azul_torre.ReleaseImage();
 
+	vias_tren.LoadTGA("texturas/vias.tga"); //vias
+	vias_tren.BuildGLTexture();
+	vias_tren.ReleaseImage();
+
+	madera.LoadTGA("texturas/madera.tga"); //madera
+	madera.BuildGLTexture();
+	madera.ReleaseImage();
+
 	tree._3dsLoad("Modelos/arbol.3ds");  //Árbol pequeño circular
 	tree.VertexNormals();
 
@@ -12413,7 +13044,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 			glPushMatrix();
 				glEnable(GL_COLOR_MATERIAL);
-				glColor3f(1, 1, 1);
+				//glColor3f(1, 1, 1);
 				glCallList(ciudad_display_list);
 				glTranslatef(posX, posY, posZ);
 				glRotatef(giroMonito, 0, 1, 0);
@@ -12423,6 +13054,8 @@ void display(void)   // Creamos la funcion donde se dibuja
 		glPopMatrix();
 		glColor3f(1.0, 1.0, 1.0);
 	glPopMatrix();
+
+	
 
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_LIGHTING);
