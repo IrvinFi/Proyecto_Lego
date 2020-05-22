@@ -40,6 +40,10 @@ float posX = 0, posY = 2.5, posZ = -3.5;
 int w = 500, h = 500;
 
 
+
+
+
+
 CCamera objCamera;	//Create objet Camera
 
 GLfloat g_lookupdown = 0.0f;    // Look Position In The Z-Axis (NEW) 
@@ -13260,8 +13264,8 @@ GLuint createDL()
 		muñecos();
 	glPopMatrix();
 	glPushMatrix();
-	glColor3f(1, 1, 1);
-	carros();
+		glColor3f(1, 1, 1);
+		carros();
 	glPopMatrix();
 
 	glEndList();
@@ -13292,6 +13296,7 @@ void InitGL(GLvoid)     // Inicializamos parametros
 
 	glEnable(GL_AUTO_NORMAL);
 	glEnable(GL_NORMALIZE);
+	glEnable(GL_BLEND);
 
 	
 
@@ -13572,7 +13577,6 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 			Audio();
 		}
 		break;
-
 	case 27:        // Cuando Esc es presionado...
 		exit(0);   // Salimos del programa
 		break;
@@ -13633,9 +13637,6 @@ int main(int argc, char** argv)   // Main Function
 	glutReshapeFunc(reshape);	//Indicamos a Glut función en caso de cambio de tamano
 	glutKeyboardFunc(keyboard);	//Indicamos a Glut función de manejo de teclado
 	glutSpecialFunc(arrow_keys);	//Otras
-
-	
-
 	glutMainLoop();  
 
 	return 0;
