@@ -35,71 +35,10 @@
 static GLuint ciudad_display_list;	
 
 									//Variables de dibujo y manipulacion
-float posX = 0, posY = 2.5, posZ = -3.5, rotRodIzq = 0, rotBrIzq = 0, rotBrDer = 0, rotRodDer = 0;
-float giroMonito = 0;
-
-#define MAX_FRAMES 5
-int i_max_steps = 90;
-int i_curr_steps = 0;
-DWORD dwFrames = 0;
-DWORD dwCurrentTime = 0;
-DWORD dwLastUpdateTime = 0;
-DWORD dwElapsedTime = 0;
-int juego;
-int juego1=0;
-int mundo; 
-float arriba = 0.0;
-
-float  arribaInc = 0.0;
-float horizontal = 0;
-float vertical = 1.24;
-float profundidad = -25;
-float giro = 0;
-
-typedef struct _frame
-{
-	//Variables para GUARDAR Key Frames
-	float posX;		//Variable para PosicionX
-	float posY;		//Variable para PosicionY
-	float posZ;		//Variable para PosicionZ
-	float incX;		//Variable para IncrementoX
-	float incY;		//Variable para IncrementoY
-	float incZ;		//Variable para IncrementoZ
-	float rotRodIzq;
-	float rotInc;
-	float rotBrIzq;
-	float rotInc2;
-	float rotBrDer;
-	float rotRodDer;
-	float rotInc4;
-	float rotInc3;
-
-	float giroMonito;
-	float giroMonitoInc;
-	float  arriba=0.0;
-	float arribaInc = 0.0;
-
-	float horizontal = 0;
-	float vertical = 1.24;
-	float profundidad = -25;
-	float giro = 0;
-
-	float horizontalInc = 0;
-	float verticalInc = 0;
-	float profundidadInc = 0;
-	float giroInc = 0;
-
-
-}FRAME;
-
-FRAME KeyFrame[MAX_FRAMES];
-int FrameIndex = 20;			//introducir datos
-bool play = false;
-int playIndex = 0;
+float posX = 0, posY = 2.5, posZ = -3.5;
 
 int w = 500, h = 500;
-int frame = 0, time, timebase = 0;
-char s[30];
+
 
 CCamera objCamera;	//Create objet Camera
 
@@ -113,15 +52,7 @@ GLfloat Specular[] = { 1.0, 1.0, 1.0, 1.0 };				// Specular Light Values
 GLfloat Position[] = { 0.0f, 7.0f, -5.0f, 0.0f };			// Light Position
 GLfloat Position2[] = { 0.0f, 0.0f, -5.0f, 1.0f };			// Light Position
 
-GLfloat m_dif1[] = { 0.0f, 0.2f, 1.0f, 1.0f };				// Diffuse Light Values
-GLfloat m_spec1[] = { 0.0, 0.0, 0.0, 1.0 };				// Specular Light Values
-GLfloat m_amb1[] = { 1, 1, 1, 1.0 };				// Ambiental Light Values
-GLfloat m_s1[] = { 18 };
 
-GLfloat m_dif2[] = { 0.8f, 0.2f, 0.0f, 1.0f };				// Diffuse Light Values
-GLfloat m_spec2[] = { 0.0, 0.0, 0.0, 1.0 };				// Specular Light Values
-GLfloat m_amb2[] = { 0.0, 0.0, 0.0, 1.0 };				// Ambiental Light Values
-GLfloat m_s2[] = { 22 };
 
 CTexture text1; //Paisaje de fondo
 CTexture text2; //Ventana
@@ -150,9 +81,6 @@ CTexture azul_torre; //azzul de la torre
 CTexture vias_tren; //rieles
 CTexture madera; //durmiente
 
-
-
-
 //END NEW//////////////////////////////////////////
 
 CFiguras fig3;   //Modelo jerarquico 
@@ -169,56 +97,26 @@ CModel man;
 CModel estatua;
 CModel poste;
 CModel resbaladilla;
+CModel woman;
+CModel carro;
+CModel carro2;
+CModel carro3;
+
+bool audio = false;
 
 void Audio() {
-	PlaySound(TEXT("Audio/fondo.wav"), NULL, SND_LOOP || SND_ASYNC);
+	if (audio) {
+		PlaySound(TEXT("Audio/fondo.wav"), NULL, SND_ASYNC | SND_LOOP);
+	}
+	else
+	{
+		PlaySound(NULL, NULL, 0);
+	}
+	
 }
 
-void saveFrame(void)
-{
 
-	printf("frameindex %d\n", FrameIndex);
 
-	KeyFrame[FrameIndex].posX = posX;
-	KeyFrame[FrameIndex].posY = posY;
-	KeyFrame[FrameIndex].posZ = posZ;
-
-	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
-	KeyFrame[FrameIndex].rotBrIzq = rotBrIzq;
-	KeyFrame[FrameIndex].rotBrDer = rotBrDer;
-	KeyFrame[FrameIndex].rotRodDer = rotBrDer;
-	KeyFrame[FrameIndex].giroMonito = giroMonito;
-
-	FrameIndex++;
-}
-
-void resetElements(void)
-{
-	posX = KeyFrame[0].posX;
-	posY = KeyFrame[0].posY;
-	posZ = KeyFrame[0].posZ;
-
-	rotRodIzq = KeyFrame[0].rotRodIzq;
-	rotBrIzq = KeyFrame[0].rotBrIzq;
-	rotBrDer = KeyFrame[0].rotBrDer;
-	rotRodDer = KeyFrame[0].rotRodDer;
-	giroMonito = KeyFrame[0].giroMonito;
-
-}
-
-void interpolation(void)
-{
-	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
-	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
-	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
-
-	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
-	KeyFrame[playIndex].rotInc2 = (KeyFrame[playIndex + 1].rotBrIzq - KeyFrame[playIndex].rotBrIzq) / i_max_steps;
-	KeyFrame[playIndex].rotInc3 = (KeyFrame[playIndex + 1].rotBrDer - KeyFrame[playIndex].rotBrDer) / i_max_steps;
-	KeyFrame[playIndex].rotInc4 = (KeyFrame[playIndex + 1].rotRodDer - KeyFrame[playIndex].rotRodDer) / i_max_steps;
-	KeyFrame[playIndex].giroMonitoInc = (KeyFrame[playIndex + 1].giroMonito - KeyFrame[playIndex].giroMonito) / i_max_steps;
-
-}
 
 void casa() {
 	glPushMatrix(); 
@@ -341,6 +239,7 @@ void casa() {
 				glEnable(GL_LIGHTING);
 			glPopMatrix();
 		glPopMatrix();
+		/*
 		glPushMatrix();
 			glTranslatef(-5.5,4.5,4.5);
 			glColor3f(0.3529, 0.043, 0.0392);
@@ -875,7 +774,7 @@ void casa() {
 				glDisable(GL_LIGHTING);
 				fig3.cilindro(.3, .3, 100, NULL); //M8
 				glEnable(GL_LIGHTING);
-			glPopMatrix();
+			glPopMatrix();*/
 		glPopMatrix();
 
 }
@@ -4376,7 +4275,8 @@ void departamentos() {
 		fig3.prisma(10, 2, 22, text4.GLindex);
 		glEnable(GL_LIGHTING);
 	glPopMatrix();
-	/*glPushMatrix();
+	
+	glPushMatrix();
 		glTranslatef(-90,0,-90);
 		casa();
 		glTranslatef(15, 0, 0);
@@ -4398,7 +4298,7 @@ void departamentos() {
 		casa();
 		glTranslatef(15, 0, 0);
 		casa();
-	glPopMatrix();*/
+	glPopMatrix();
 }
 
 void pavimento(){
@@ -12749,8 +12649,572 @@ void vias() {
 	fig10.prisma2(vias_tren.GLindex, vias_tren.GLindex); //VIAS
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
+	glTranslatef(4.75, 6, 4.75);
+	glPushMatrix();
+	glScalef(.5, 15, 17);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(centro.GLindex, centro.GLindex); //tunel 1
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(.25, 7.5, 0);
+	glPushMatrix();
+	glRotatef(90,0,0,1);
+	glDisable(GL_LIGHTING);
+	fig10.cilindro(8.5,.5,1000, centro.GLindex); //tunel 1
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(-200, -7.5, 0);
+	glPushMatrix();
+	glScalef(.5, 15, 17);
+	glDisable(GL_LIGHTING);
+	fig10.prisma2(centro.GLindex, centro.GLindex); //tunel 2
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+	glTranslatef(-.25, 7.5, 0);
+	glPushMatrix();
+	glRotatef(-90, 0, 0, 1);
+	glDisable(GL_LIGHTING);
+	fig10.cilindro(8.5, .5, 1000, centro.GLindex); //tunel 2
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
 	glPopMatrix();
 }
+
+void 	muñecos() {
+	glTranslatef(-90,0,-80);
+	glPushMatrix();//muñecos departamentos
+		glScalef(.00625, .007, .00625);
+		glRotatef(90,0,1,0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco depa 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(30, 0, 18);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco depa 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(30, 0, -14);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco depa 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(26, 0.25, 5);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco camellon 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(38, 0.25, -10);
+	glPushMatrix();
+	glTranslatef(0,0,-15);
+		glScalef(.00625, .007, .00625);
+		glRotatef(-90,0,1,0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco parque 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(3, 0, 0);
+	glPushMatrix();
+		glTranslatef(0, 0, -15);
+		glScalef(.15, .12, .15);
+		//glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca parque 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(20, 0, 10);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca parque 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-22, 0, 10);
+	glPushMatrix();
+		glScalef(.00625, .008, .00625);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco parque 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(3, 0, 0);
+	glPushMatrix();
+		glScalef(.006, .004, .006);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño parque 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(3, 0, 0);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca parque 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(51, 0, -10);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		//glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca pinos 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, 50);
+	glPushMatrix();
+		glScalef(.00625, .008, .00625);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco pinos 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, 50);
+	glPushMatrix();
+		glScalef(.00625, .008, .00625);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco pinos 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-43.2, 2.5, 5);
+	glPushMatrix();
+		glScalef(.006, .004, .005);
+		glRotatef(41, 0, 0, 1);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(5, -3, 4);
+	glPushMatrix();
+		glScalef(.006, .004, .005);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-11.5, 0, -4);
+	glPushMatrix();
+		glScalef(.10, .07, .10);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //niña escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-12, 0, -1);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-3, 0, 3);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 4
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, -6);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 5
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-11.5, 0, 3);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 6
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(3, 0, 3);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 7
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, -6);
+	glPushMatrix();
+		glScalef(.006, .0055, .005);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 8
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(5, .75, 3);
+	glPushMatrix();
+		glDisable(GL_COLOR_MATERIAL);
+		fig10.esfera(.5,10,10,tubo.GLindex); //pelota
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(14, -.5, -45);
+	glPushMatrix();
+		glScalef(.006, .004, .005);
+		glRotatef(-90,0,1,0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //niño escuela 9
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(1.5, 0, 10);
+	glPushMatrix();
+		glScalef(.10, .07, .10);
+		//glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //niña escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-.75, .75, 6.5);
+	glPushMatrix();
+		glScalef(.10, .07, .10);
+		//glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //niña escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(4, 1, 0);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(190, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //maestra escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-23, -1.5, -18.5);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-10, 0, 20);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco escuela 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-40, 0, 8);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca torre 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, -4);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca torre 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+
+	glTranslatef(10, 0, 2);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco torre 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+
+	glTranslatef(-65, 0, 20);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco torre 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(2, 0, -40);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco torre 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(22, 0, -32);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		//glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(45, 0, 0);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, 82.5);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-20, 0, -.5);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(-90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca banqueta 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-30, 0, 0);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-25, 0, 27);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(90, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca banqueta 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(45, 0, 0);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(60, 0, 0);
+	glPushMatrix();
+		glScalef(.15, .12, .15);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		woman.GLrender(NULL, _SHADED, 1.0); //muñeca banqueta 3
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(50, 0, 0);
+	glPushMatrix();
+		glScalef(.00625, .007, .00625);
+		glRotatef(180,0,1,0);
+		glDisable(GL_COLOR_MATERIAL);
+		man.GLrender(NULL, _SHADED, 1.0); //muñeco banqueta 4
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+
+
+}
+
+void carros() {
+	glTranslatef(-82.5, -.15, -81);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		carro.GLrender(NULL, _SHADED, 1.0); //carro 1
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(30, 0, 21);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glRotatef(180,0,1,0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro2.GLrender(NULL, _SHADED, 1.0); //carro 2
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(20, 0.25, -10.5);
+	glPushMatrix();
+		glRotatef(-90,0,1,0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro3.GLrender(NULL, _SHADED, 1.0); //carro 3
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(22.5, 0, 23);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro2.GLrender(NULL, _SHADED, 1.0); //carro 4
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, 70);
+		glPushMatrix();
+		glScalef(.03, .03, .02);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro.GLrender(NULL, _SHADED, 1.0); //carro 5
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(13, 0, -40);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glDisable(GL_COLOR_MATERIAL);
+		carro3.GLrender(NULL, _SHADED, 1.0); //carro 6
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(69.5, 0, -40);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro2.GLrender(NULL, _SHADED, 1.0); //carro 7
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, 80);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro.GLrender(NULL, _SHADED, 1.0); //carro 8
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(13, 0, 30);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		//glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro2.GLrender(NULL, _SHADED, 1.0); //carro 9
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, -60);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		//glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro3.GLrender(NULL, _SHADED, 1.0); //carro 10
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(0, 0, -60);
+	glPushMatrix();
+		glScalef(.03, .03, .02);
+		//glRotatef(180, 0, 1, 0);
+		glDisable(GL_COLOR_MATERIAL);
+		carro.GLrender(NULL, _SHADED, 1.0); //carro 11
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+	glTranslatef(-60, 0, 33.5);
+	glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro3.GLrender(NULL, _SHADED, 1.0); //carro 12
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(-60, 0, 0);
+	glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro2.GLrender(NULL, _SHADED, 1.0); //carro 13
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(-30, 0, 13);
+	glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro.GLrender(NULL, _SHADED, 1.0); //carro 14
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(43, 0, 0);
+	glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro.GLrender(NULL, _SHADED, 1.0); //carro 15
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(70, 0,0 );
+	glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro3.GLrender(NULL, _SHADED, 1.0); //carro 16
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(-20, 0, 70);
+	glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro3.GLrender(NULL, _SHADED, 1.0); //carro 17
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(-50, 0,0 );
+	glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+			glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro.GLrender(NULL, _SHADED, 1.0); //carro 18
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(-50, 0, 0);
+	glPushMatrix();
+		glRotatef(90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro2.GLrender(NULL, _SHADED, 1.0); //carro 19
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(25, 0, 13);
+	glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro3.GLrender(NULL, _SHADED, 1.0); //carro 20
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+	glTranslatef(70, 0, 0);
+	glPushMatrix();
+		glRotatef(-90, 0, 1, 0);
+		glPushMatrix();
+			glScalef(.03, .03, .02);
+			glDisable(GL_COLOR_MATERIAL);
+			carro2.GLrender(NULL, _SHADED, 1.0); //carro 21
+			glEnable(GL_COLOR_MATERIAL);
+		glPopMatrix();
+	glPopMatrix();
+}
+
 
 GLuint createDL()
 {
@@ -12790,6 +13254,14 @@ GLuint createDL()
 	glPushMatrix();
 		glColor3f(1, 1, 1);
 		vias();
+	glPopMatrix();
+	glPushMatrix();
+		glColor3f(1, 1, 1);
+		muñecos();
+	glPopMatrix();
+	glPushMatrix();
+	glColor3f(1, 1, 1);
+	carros();
 	glPopMatrix();
 
 	glEndList();
@@ -12952,62 +13424,27 @@ void InitGL(GLvoid)     // Inicializamos parametros
 	resbaladilla._3dsLoad("Modelos/resbaladilla.3ds"); //resbaladilla
 	resbaladilla.VertexNormals();
 
+	woman._3dsLoad("Modelos/woman.3ds");
+	woman.VertexNormals();
 
-	//NEW////////////////////////////////////////////
-	KeyFrame[0].arriba = 0;
-	KeyFrame[0].horizontal = 0;
-	KeyFrame[0].vertical = 1.4;
-	KeyFrame[0].profundidad = -25;
-	KeyFrame[0].giro = 0;
+	carro._3dsLoad("Modelos/carro.3ds");
+	carro.VertexNormals();
 
+	carro2._3dsLoad("Modelos/carro2.3ds");
+	carro.VertexNormals();
 
+	carro3._3dsLoad("Modelos/carro3.3ds");
+	carro.VertexNormals();
 
-	KeyFrame[1].arriba = -8;
-	KeyFrame[1].horizontal = 26.2;
-	KeyFrame[1].vertical = 1.4;
-	KeyFrame[1].profundidad = -25;
-	KeyFrame[1].giro = 0;
-
-	KeyFrame[2].arriba = 0;
-	KeyFrame[2].horizontal = 26.2;
-	KeyFrame[2].vertical = 1.4;
-	KeyFrame[2].profundidad = -42;
-	KeyFrame[2].giro = 0;
-
-	KeyFrame[3].horizontal = 20;
-	KeyFrame[3].vertical = 1.4;
-	KeyFrame[3].profundidad = -42;
-	KeyFrame[3].giro = 0;
-	
 
 
 	//END NEW//////////////////////////////
-
-	objCamera.Position_Camera(0, 4.0f, 3, 0, 4.0f, 0, 0, 1, 0);
-
+		objCamera.Position_Camera(0, 4.0f, 3, 0, 4.0f, 0, 0, 1, 0);
+	
 	//NEW Crear una lista de dibujo
 	ciudad_display_list = createDL();
 
-	//NEW Iniciar variables de KeyFrames
-	for (int i = 0; i<MAX_FRAMES; i++)
-	{
-		KeyFrame[i].posX = 0;
-		KeyFrame[i].posY = 0;
-		KeyFrame[i].posZ = 0;
-		KeyFrame[i].incX = 0;
-		KeyFrame[i].incY = 0;
-		KeyFrame[i].incZ = 0;
-		KeyFrame[i].rotRodIzq = 0;
-		KeyFrame[i].rotBrIzq = 0;
-		KeyFrame[i].rotInc2 = 0;
-		KeyFrame[i].rotInc = 0;
-		KeyFrame[i].rotBrDer = 0;
-		KeyFrame[i].rotInc3 = 0;
-		KeyFrame[i].giroMonito = 0;
-		KeyFrame[i].giroMonitoInc = 0;
-	}
-	//NEW//////////////////NEW//////////////////NEW///////////
-
+	
 }
 
 void pintaTexto(float x, float y, float z, void *font, char *string)
@@ -13034,6 +13471,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 			objCamera.mView.x, objCamera.mView.y, objCamera.mView.z,
 			objCamera.mUp.x, objCamera.mUp.y, objCamera.mUp.z);
 
+			
 		glPushMatrix();
 			glPushMatrix(); //Creamos cielo
 				glDisable(GL_LIGHTING);
@@ -13044,10 +13482,8 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 			glPushMatrix();
 				glEnable(GL_COLOR_MATERIAL);
-				//glColor3f(1, 1, 1);
 				glCallList(ciudad_display_list);
 				glTranslatef(posX, posY, posZ);
-				glRotatef(giroMonito, 0, 1, 0);
 				glDisable(GL_COLOR_MATERIAL);
 			glPopMatrix();
 			glEnable(GL_LIGHTING);
@@ -13124,6 +13560,19 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		objCamera.UpDown_Camera(-(CAMERASPEED + 0.1));
 		break;
 
+	case 'p':
+	case 'P':
+		if (audio == true) {
+			audio = false;
+			Audio();
+		}
+		else
+		{
+			audio = true;
+			Audio();
+		}
+		break;
+
 	case 27:        // Cuando Esc es presionado...
 		exit(0);   // Salimos del programa
 		break;
@@ -13184,10 +13633,8 @@ int main(int argc, char** argv)   // Main Function
 	glutReshapeFunc(reshape);	//Indicamos a Glut función en caso de cambio de tamano
 	glutKeyboardFunc(keyboard);	//Indicamos a Glut función de manejo de teclado
 	glutSpecialFunc(arrow_keys);	//Otras
-	
 
 	
-	Audio();
 
 	glutMainLoop();  
 
